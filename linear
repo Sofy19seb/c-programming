@@ -1,0 +1,80 @@
+#iclude<stdio.h>
+void create();
+void display();
+void insert();
+void delete();
+int a[50],n;
+void main()
+{
+    int ch;
+    do {
+        printf("\nArray operations\n");
+        printf("menu \n1.create \n2.insert \n3.delete \n4.display");
+        printf("enter your choice:");
+        scanf("%d",&ch);
+        switch(ch)
+        {
+            
+            case 1:create();
+            break;
+            case 2:insert();
+            break;
+            case 3:delete();
+            break;
+            case 4:display();
+            break;
+        }
+    }while(ch!=5);    
+}
+  void create()
+{
+    int i;
+    printf("enter the size of the array");
+    scanf("%d",&n);
+    printf("enter the elements:");
+    for (i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+      printf("array created");
+} 
+    void insert()
+{
+    int i,pos,item;
+    printf("enter the position");
+    scanf("%d",&pos);
+    printf("enter the item");
+    scanf("%d",&item);
+    i=n;
+    while(pos<=1)
+    {
+        a[i+1]=a[i];
+        i--;
+    }
+    n++;
+    a[pos]=item;
+    printf("%d is inserted",item);
+}
+  void delete()
+  {
+      int i,pos;
+      printf("enter position");
+      scanf("%d",&pos);
+      i=pos;
+      while (i<=n-1)
+      {
+          a[i]=a[i+1];
+          i++;
+      }
+       n--;
+       printf("deleted");
+  }
+  void display()
+  {
+      int i;
+      printf ("elements are: \n");
+      for (i=0;i<n;i++)
+      {
+          printf("%d\t",a[i]);
+      }
+}
